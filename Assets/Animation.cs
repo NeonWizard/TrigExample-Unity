@@ -8,7 +8,7 @@ public class Animation : MonoBehaviour {
 	public Text cosText;
 	public Text sinText;
 
-	int angle = 90;
+	int angle = 0;
 	float cos;
 	float sin;
 
@@ -30,13 +30,13 @@ public class Animation : MonoBehaviour {
 
 		// -- Axis lines
 		float screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
-		Debug.DrawLine(new Vector2(-screenWidth, 0), new Vector2(screenWidth, 0), new Color(50/255f, 50/255f, 50/255f));
-		Debug.DrawLine(new Vector2(0, -Camera.main.orthographicSize), new Vector2(0, Camera.main.orthographicSize), new Color(50/255f, 50/255f, 50/255f));
+		Gizmos.DrawLine(new Vector2(-screenWidth, 0), new Vector2(screenWidth, 0), new Color(50/255f, 50/255f, 50/255f));
+		Gizmos.DrawLine(new Vector2(0, -Camera.main.orthographicSize), new Vector2(0, Camera.main.orthographicSize), new Color(50/255f, 50/255f, 50/255f));
 
 		// -- Draw internal lines
-		Debug.DrawLine(Vector2.zero, new Vector2(cos * 7.85f/2, sin * 7.85f/2), Color.white);
-		Debug.DrawLine(Vector2.zero, new Vector2(cos * 7.85f/2, 0), new Color(121/255f, 243, 8/255f)); // cosine
-		Debug.DrawLine(new Vector2(cos * 7.85f/2, 0), new Vector2(cos * 7.85f/2, sin * 7.85f/2), new Color(56/255f, 98/255f, 193/255f)); // sine
+		Gizmos.DrawLine(Vector2.zero, new Vector2(cos * 7.85f/2, sin * 7.85f/2), Color.white);
+		Gizmos.DrawLine(Vector2.zero, new Vector2(cos * 7.85f/2, 0), new Color(121/255f, 243, 8/255f)); // cosine
+		Gizmos.DrawLine(new Vector2(cos * 7.85f/2, 0), new Vector2(cos * 7.85f/2, sin * 7.85f/2), new Color(56/255f, 98/255f, 193/255f)); // sine
 
 		angle = (angle+1) % 360;
 	}
